@@ -1,0 +1,8 @@
+<div class="ui large">
+<h1>TRAVEL APP</h1>
+<app-add-journey (newJourney)="newJourneyAdded($event)"></app-add-journey>
+
+<div class="center aligned row">
+<app-journey *ngFor="let localJourney of journeys" [journey]="localJourney"></app-journey>
+</div>
+</div>
