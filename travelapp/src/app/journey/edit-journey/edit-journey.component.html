@@ -1,0 +1,14 @@
+<form class="ui large form segment error" [formGroup]='journey' (ngSubmit)='onSubmit()'> 
+    <h2 class="ui header">Resume</h2>
+    <div class="field"> 
+      <label for='resume_id'>Your resume:</label>
+      <textarea id="resume_id" formControlName="resume" value="{{resumeText}}"></textarea>
+    </div>
+    
+    <button type='submit' class="ui primary button">Save</button>
+    <button class="ui button" (click)="onCancel()">Cancel</button>
+  </form> 
+  
+  
+  
+  

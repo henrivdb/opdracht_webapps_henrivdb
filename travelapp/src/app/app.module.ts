@@ -2,17 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { JourneyComponent } from './journey/journey.component';
-import { AddJourneyComponent } from './add-journey/add-journey.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { JourneyModule } from './journey/journey.module';
+import { UserModule } from './user/user.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    JourneyComponent,
-    AddJourneyComponent
-  ],
+    PageNotFoundComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    UserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

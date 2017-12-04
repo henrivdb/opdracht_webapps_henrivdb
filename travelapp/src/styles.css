@@ -1,1 +1,70 @@
 @import './3rdParty/semantic.min.css';
+
+.journey{
+    float: left;
+    padding: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    border: 3px solid gray;
+    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    
+}
+
+.journey:hover{
+    border: 3px solid black;
+    cursor: pointer;
+    box-shadow: 1px 1px gray;
+}
+
+.new{
+    font-size: 250px;
+    text-align: center;
+    padding-top: 35%;
+    margin: 5px;   
+}
+
+.new{
+    color:#007791;
+}
+
+.new:hover{
+    color:#00647A;
+    
+}
+
+.login{ 
+    width:50%;
+    margin-left: 25% !important;
+}
+
+.register{
+    float: right;
+}
+
+.logout{
+    float: right;
+}
+
+body{
+}
+
+.detail{
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+    overflow: hidden;    
+}
+
+.form{
+    overflow: hidden;   
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+}
+
+.content{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}

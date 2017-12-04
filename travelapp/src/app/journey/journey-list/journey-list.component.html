@@ -1,0 +1,13 @@
+
+<div class="ui grid ">
+    <app-journey *ngFor="let local of journeys" [journey]="local" (detailJourney)="detail($event)"
+    (deleteJourney)='removeJourney($event)'>
+    </app-journey>
+    <a class='item' routerLinkActive='active' 
+    routerLink="/journey/add" >
+    <div class="journey new">
+      +
+    </div>
+    </a>
+  </div>
+

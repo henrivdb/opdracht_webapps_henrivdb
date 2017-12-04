@@ -1,29 +1,27 @@
 import { Component } from '@angular/core';
 import { Journey } from './journey/journey.model';
-import { JourneyDataService } from './journey-data.service';
+//import { JourneyDataService } from './journey-dataservice';
+import { Observable } from 'rxjs/Observable';
+import { AuthenticationService } from './user/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [JourneyDataService]
 })
 export class AppComponent {
-  private _journeys: Journey[];
 
-  constructor(private _journeyDataService: JourneyDataService)
-  {
-    this._journeys = this._journeyDataService.journeys;
+  constructor(private authService:AuthenticationService, private router:Router){
   }
 
-  get journeys() : Journey[]
-  {
-    return this._journeys;
+  get currentUser(): Observable<string> {
+    return this.authService.user$;
   }
 
-  newJourneyAdded(journey)
+  logout()
   {
-    this._journeyDataService.addNewJourney(journey);
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
-
 }
