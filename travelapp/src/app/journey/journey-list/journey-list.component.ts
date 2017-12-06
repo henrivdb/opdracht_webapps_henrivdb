@@ -28,7 +28,7 @@ export class JourneyListComponent implements OnInit {
     $("body").css({
       "background-image": "url(/assets/images/back.JPG)",
       "background-position": "center",
-      "background-repeat":"no-repeat",
+      "background-repeat":" repeat",
       "background-size":"cover"
     });  
     this._journeyDataService.journeys.subscribe(journeys => 

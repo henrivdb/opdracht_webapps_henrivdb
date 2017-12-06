@@ -1,16 +1,24 @@
 
-<form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui form segment login">
-    <h2 class="ui dividing header">Login</h2>    
+<form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui form large segment login">
+    <h1 class="ui dividing header">Login</h1>    
     <div class="field">
-      <label for="username">Username:</label>
-      <input type="text" id="username" formControlName='username'>
+        <div class="ui left icon input">
+            <i class="user icon"></i>
+      <input type="text" id="username" formControlName='username' placeholder="Username">
+    </div>
     </div>
     <div class="field">
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName='password'>
+        <div class="ui left icon input">
+            <i class="lock icon"></i>
+      <input type="password" id="password" formControlName='password' placeholder="Password">
     </div>
-    <button type='submit' [disabled]='!user.valid' class="ui primary right floated button">log in</button>
-    <div *ngIf='errorMsg' class='ui red label'>{{errorMsg}}</div>
+  </div>  
+    <div *ngIf='errorMsg' class='ui red label loginMess'>{{errorMsg}}</div>  
+    <button type='submit' [disabled]='!user.valid' class="ui fluid large primary submit button">Log in</button>
   </form>
 
+  <div class="ui message login">
+      <p>Not registered yet? <a class='item' routerLink="/register" >Sign up</a></p>
+
+  </div>
 

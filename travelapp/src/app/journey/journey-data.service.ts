@@ -42,10 +42,6 @@ export class JourneyDataService {
     }
 
     updateJourney(jour){
-      /*return this.http.post(`${this._appUrl}/journey/`, jour) 
-      .map(jour => jour.json())
-      .map(item => Journey.fromJSON(item));*/
-      console.log(jour);
       return this.http.put(`${this._appUrl}journey/${jour.id}`, jour) 
       .map(jour => jour.json())
       .map(item => Journey.fromJSON(item));

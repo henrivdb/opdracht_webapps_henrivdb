@@ -28,7 +28,7 @@ router.get('/API/journeys/',auth, function(req, res, next) {
 
 router.post('/API/journeys/',auth, function (req, res, next) {
   let journey = new Journey({name: req.body.name, destination: req.body.destination, 
-    startDate:req.body.startdate,endDate:req.body.endDate, country:req.body.country, 
+    startDate:req.body.startDate,endDate:req.body.endDate, country:req.body.country, 
     user:req.body.user, resume:req.body.resume});
   journey.save(function(err, rec) {
     if (err){ return next(err); }

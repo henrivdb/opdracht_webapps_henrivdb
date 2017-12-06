@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 function compareDates(control: AbstractControl): { [key: string]: any } {
   const startDate = control.get('startDate');
   const endDate = control.get('endDate');
-  return startDate.value < endDate.value ? null : { 'afterDate': true };
+  return startDate.value > endDate.value ? { 'afterDate': true }: null;
 }
 
 declare var jquery:any; 
@@ -39,6 +39,10 @@ export class AddJourneyComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( $('[type="date"]').prop('type') != 'date' ) {
+      $('[type="date"]').datepicker();
+  }
+
     $("body").css("background", "none");    
     this.auth.allUsers.subscribe(items => this.users= items.filter(u=> u != this.auth.user$.getValue()));
     this.journey= this.fb.group({
@@ -65,9 +69,8 @@ export class AddJourneyComponent implements OnInit {
   }
 
     var resume= new Array(user.length);
-    
-    let jour = new Journey(this.journey.value.name,this.journey.value.destination, this.journey.value.startDate, 
-      this.journey.value.endDate, this.journey.value.country, user, resume);
+    let jour = new Journey(this.journey.value.name,this.journey.value.destination, this.journey.value.dateGroup.startDate, 
+    this.journey.value.dateGroup.endDate, this.journey.value.country, user, resume);
     if(this.journey.valid)
       {
     this._journeyDataService.addNewJourney(jour).subscribe();

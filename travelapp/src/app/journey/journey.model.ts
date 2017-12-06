@@ -13,8 +13,8 @@ export class Journey {
         this._name = name;
         this._destination = destination;
         this._country = country;
-        this._endDate = endDate;
-        this._startDate = startDate;
+        this._endDate = new Date(endDate);
+        this._startDate = new Date(startDate);
         this._user = user;
         this._resume = resume;
     }
@@ -43,6 +43,7 @@ export class Journey {
         return this._country;
     }
 
+
     set resume(resume:string[])
     {
         this._resume=resume;
@@ -60,11 +61,9 @@ export class Journey {
         return jour;
     }
 
-    get dateString(): string {
-        if (this._startDate != null && this._endDate != null) {
-            return this._startDate.toString() + ' ' + this._endDate.toString();
-        }
-        return null;
+    getDateString(): string {
+        return  ( this._startDate.getDate()+'/'+this._startDate.getMonth()+'/' + this._startDate.getFullYear()+
+        ' - ' + this._endDate.getDate()+'/'+this._endDate.getMonth()+'/' + this._endDate.getFullYear());
     }
 
     toJSON() {

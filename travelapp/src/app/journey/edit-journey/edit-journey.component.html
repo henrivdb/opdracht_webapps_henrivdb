@@ -2,10 +2,14 @@
     <h2 class="ui header">Your review:</h2>
     <div class="field"> 
       <textarea id="resume_id" formControlName="resume" value="{{resumeText}}"></textarea>
+      <div *ngIf='journey.get("resume").errors?.required && journey.get("resume").touched'
+      class='ui pointing red basic label'>
+      review is required
+      </div>
     </div>
     
-    <button type='submit' class="ui primary button">Save</button>
-    <button class="ui button" (click)="onCancel()">Cancel</button>
+    <button type='submit' [disabled]="!journey.valid" class="ui primary button">Save</button>
+    <button class="ui button" type="cancel" (click)="onCancel()">Cancel</button>
   </form> 
   
   

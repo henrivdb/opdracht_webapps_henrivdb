@@ -41,7 +41,7 @@ export class EditJourneyComponent implements OnInit {
       }));
 
     this.journey= this.fb.group({
-      resume: this.resumeText,
+      resume: ['', Validators.required],
       });
   }
 

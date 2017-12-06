@@ -3,17 +3,15 @@
   <div class="field"> 
     <label for='name_id'>Journey name:</label>
     <input type='text' id='name_id' formControlName='name' >
-  </div>
-
-  <div *ngIf='journey.get("name").errors?.required && journey.get("name").touched' 
-  class='ui pointing red basic label'>
-    <p>the journey name is require</p>
-  </div>
-
-
-  <div *ngIf='journey.get("name").errors?.minlength && journey.get("name").touched' 
-  class='ui pointing red basic label'>
-    the journey name must be at least 3 characters long
+    <div *ngIf='journey.get("name").errors?.required && journey.get("name").touched' 
+    class='ui pointing red basic label'>
+      <p>the journey name is require</p>
+    </div>
+  
+    <div *ngIf='journey.get("name").errors?.minlength && journey.get("name").touched' 
+    class='ui pointing red basic label'>
+      the journey name must be at least 3 characters long
+    </div>
   </div>
 
   <div class="field"> 
@@ -283,6 +281,7 @@
        country is required
     </div>
   </div>
+
 <div class="field" formGroupName='dateGroup'>
   <div class="field">
     <label for='startDate_id'>Begin date:</label>
@@ -296,15 +295,13 @@
   <div class="field">
     <label for='endDate_id'>End date:</label>
     <input type='date' id='endDate_id' formControlName='endDate' >
+    <div class='ui pointing red basic label' 
+    *ngIf='journey.get("dateGroup").errors?.afterDate
+    && journey.get("dateGroup").get("startDate").touched  
+    && journey.get("dateGroup").get("endDate").touched'>
+     end date should start after the start date
   </div>
-  
-
-  <div class='ui pointing red basic label' 
-  *ngIf='journey.get("dateGroup").errors?.afterDate
-  && journey.get("dateGroup").get("startDate").touched  
-  && journey.get("dateGroup").get("endDate").touched'>
-   end date should start after the start date
-</div>
+  </div>
 </div>
 
 <div class="field">
