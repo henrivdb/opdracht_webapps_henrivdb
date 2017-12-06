@@ -314,8 +314,8 @@
   </select>
 </div>
 
-  <button type='submit' class="ui primary button">Add</button>
-  <button class="ui button" (click)="onCancel()">Cancel</button>
+  <button [disabled]="!journey.valid" type='submit' class="ui primary button">Add</button>
+  <button class="ui button" type="cancel" (click)="onCancel()">Cancel</button>
 </form> 
 
 

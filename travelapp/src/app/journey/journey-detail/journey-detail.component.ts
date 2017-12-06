@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { JourneyDataService } from '../journey-data.service';
 import { Journey } from '../journey.model';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms/src/validators';
 import { forEach } from '@angular/router/src/utils/collection';
+
+declare var jquery:any; 
+declare var $ :any;
 
 @Component({
   selector: 'app-journey-detail',
@@ -13,7 +16,6 @@ import { forEach } from '@angular/router/src/utils/collection';
 })
 export class JourneyDetailComponent implements OnInit {
   private _journey:Journey;
-
   public resumeText: string[];
   
   constructor(private route: ActivatedRoute, private journeyDataService: JourneyDataService,
@@ -21,29 +23,23 @@ export class JourneyDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    //const id = this.route.snapshot.paramMap.get('id');
-    //this.journeyDataService.getJourney(id).subscribe(item => this._journey = item);
-
-    //this.route.data.subscribe(item => this._recipe = item['recipe']);
-     /*this.route.paramMap.subscribe(pa =>
-      this.journeyDataService.getJourney(pa.get('id')).subscribe(item => this._journey = item)
-     );*/
-     this.journeyDataService.getJourney("5a2582952f24b0bcc8e642db")
-     .subscribe(item => {
-       this._journey=item
-       let i=0;
-       this.resumeText= new Array();
-        item.user.forEach(u=>{
-          if(item.resume[i]!=null && item.resume[i].trim()!="")
-          {
-          this.resumeText.push("Review of "+u+":\n"+item.resume[i]);
-          i++;
-          }
-        });
-        console.log(this.resumeText);
-      });
+    $("body").css("background", "none");
+    
+    this.route.paramMap.subscribe(pa =>
+      this.journeyDataService.getJourney(pa.get('id'))
+      .subscribe(item => {
+        this._journey=item
+        let i=0;
+        this.resumeText= new Array();
+         item.user.forEach(u=>{
+           if(item.resume[i]!=null && item.resume[i].trim()!="")
+           {
+           this.resumeText.push("Review of "+u+":\n"+item.resume[i]);
+           i++;
+           }
+         });
+       }));
   }
-
 
     get journey() {
       return this._journey;
@@ -51,5 +47,15 @@ export class JourneyDetailComponent implements OnInit {
 
     edit(){
       this.router.navigate(['journey/edit', this._journey.id]);
+    }
+
+    delete()
+    {
+      var conf= confirm("Are you sure you want to delete this journey?");
+      if(conf)
+      {
+      this.journeyDataService.deleteJourney(this._journey).subscribe();
+      this.router.navigate(['journey/list']);
+      }
     }
 }

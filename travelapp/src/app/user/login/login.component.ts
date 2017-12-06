@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
-
 function passwordValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
     console.log(control.value);
     return control.value.length < 12 ? { 'passwordTooShort': { value: control.value.length } } : null;
   };
 }
+
+declare var jquery:any; 
+declare var $ :any;
 
 @Component({
   selector: 'app-login',
@@ -23,6 +25,13 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
+    $("body").css({
+      "background-image": "url(/assets/images/back.JPG)",
+      "background-position": "center",
+      "background-repeat":"no-repeat",
+      "background-size":"cover"
+    }); 
+
     this.user = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

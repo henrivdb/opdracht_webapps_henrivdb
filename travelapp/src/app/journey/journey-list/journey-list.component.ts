@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthenticationService } from '../../user/authentication.service';
 
+declare var jquery:any; 
+declare var $ :any;
+
+
 @Component({
   selector: 'app-journey-list',
   templateUrl: './journey-list.component.html',
@@ -21,15 +25,15 @@ export class JourneyListComponent implements OnInit {
   }
 
   ngOnInit() {
+    $("body").css({
+      "background-image": "url(/assets/images/back.JPG)",
+      "background-position": "center",
+      "background-repeat":"no-repeat",
+      "background-size":"cover"
+    });  
     this._journeyDataService.journeys.subscribe(journeys => 
       {this._journeys = journeys;
       });
-  }
-
-  removeJourney(journey: Journey) {
-    this._journeyDataService.deleteJourney(journey).subscribe(item =>
-      this._journeys = this._journeys.filter(val => item.id !== val.id)
-    );
   }
 
   detail(journey: Journey)

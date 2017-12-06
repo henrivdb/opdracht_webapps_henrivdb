@@ -6,60 +6,81 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 20px;
-    border: 3px solid gray;
     border-radius: 10px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
-    
+    background-color: rgba(247,249,255,0.5);
+    color: #212122;
+    box-shadow: 5px 5px 50px rgba(211, 211, 211, 0.575);    
+}
+
+.journey h2{
+    padding-top: 30px;
+    color:#075D98;
+    text-align: center;
 }
 
 .journey:hover{
-    border: 3px solid black;
     cursor: pointer;
-    box-shadow: 1px 1px gray;
+    box-shadow: 5px 5px 50px gray;
 }
 
 .new{
-    font-size: 250px;
+    font-size: 200px;
     text-align: center;
     padding-top: 35%;
-    margin: 5px;   
+    margin-left: 5px;
 }
 
 .new{
-    color:#007791;
+    color:#075D98;
 }
 
 .new:hover{
-    color:#00647A;
-    
-}
-
-.login{ 
-    width:50%;
-    margin-left: 25% !important;
+    color:#05426B;    
 }
 
 .register{
-    float: right;
+float: right;
 }
 
 .logout{
     float: right;
 }
 
-body{
-}
-
 .detail{
-    margin-right: 15% !important;
-    margin-left: 15% !important;
     overflow: hidden;    
 }
 
 .form{
     overflow: hidden;   
+}
+
+.content{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/**********************************************DESKTOP***************************************/
+@media screen and (min-width: 992px) {
+
+.journey{
+    width: 250px;
+    height: 250px;
+}
+
+.new{
+    font-size: 250px; 
+}
+
+
+.detail{
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+}
+
+.form{
     margin-right: 15% !important;
     margin-left: 15% !important;
 }
@@ -67,4 +88,11 @@ body{
 .content{
     padding-top: 10px !important;
     padding-bottom: 10px !important;
+}
+
+.login{ 
+    
+    margin-left: 30% !important;
+    margin-right: 30% !important;
+}
 }

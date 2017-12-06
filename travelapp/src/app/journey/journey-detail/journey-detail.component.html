@@ -21,12 +21,11 @@
         <p>{{res}}</p>
         <br>
     </div>
-    
 
 
     <p class="ui dividing header"></p>
-    <button class="ui button negative right floated">Delete</button>
-    <button class="ui primary button right floated" (click)="edit()">Edit resume</button>
+    <button class="ui button negative right floated" (click)="delete()">Delete</button>
+    <button class="ui primary button right floated" (click)="edit()">Edit review</button>
     <button class="ui right labeled icon button" routerLinkActive='active' routerLink="/journey/list">
         <i class="left arrow icon"></i>List
     </button>

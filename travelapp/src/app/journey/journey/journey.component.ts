@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class JourneyComponent implements OnInit {
 
   @Input() public journey:Journey;  
-  @Output() public deleteJourney = new EventEmitter<Journey>();
   @Output() public detailJourney = new EventEmitter<Journey>();
   private router : Router;
   
@@ -22,11 +21,6 @@ export class JourneyComponent implements OnInit {
     }
 
   ngOnInit() {
-  }
-
-  delete()
-  {
-    this.deleteJourney.emit(this.journey);
   }
 
   detail()

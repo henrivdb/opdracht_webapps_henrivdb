@@ -3,7 +3,7 @@ import { Output, EventEmitter } from '@angular/core';
 import { Journey } from '../journey.model';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { JourneyDataService } from '../journey-data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { AuthenticationService } from '../../user/authentication.service';
 import { ValidatorFn } from '@angular/forms/src/directives/validators';
 import { AbstractControl } from '@angular/forms/src/model';
@@ -13,8 +13,6 @@ function compareDates(control: AbstractControl): { [key: string]: any } {
   const endDate = control.get('endDate');
   return startDate.value < endDate.value ? null : { 'afterDate': true };
 }
-
-
 
 @Component({
   selector: 'app-edit-journey',
@@ -29,17 +27,18 @@ export class EditJourneyComponent implements OnInit {
 
   private userIndex;
 
-  constructor(private journeyDataService: JourneyDataService,private fb:FormBuilder, private auth:AuthenticationService, private router:Router) { 
+  constructor(private route:ActivatedRoute, private journeyDataService: JourneyDataService,private fb:FormBuilder, private auth:AuthenticationService, private router:Router) { 
 
   }
 
    ngOnInit() {
-    this.journeyDataService.getJourney("5a2582952f24b0bcc8e642db")
+    this.route.paramMap.subscribe(pa =>
+      this.journeyDataService.getJourney(pa.get('id'))
       .subscribe(item => {
         this._journey=item;
         this.userIndex= item.user.indexOf(this.auth.user$.getValue());
         this.resumeText= item.resume[this.userIndex];
-      });
+      }));
 
     this.journey= this.fb.group({
       resume: this.resumeText,
@@ -54,13 +53,13 @@ export class EditJourneyComponent implements OnInit {
   {
     this._journey.resume[this.userIndex]= this.journey.value.resume;
     this.journeyDataService.updateJourney(this._journey).subscribe();
-    this.router.navigate(['journey/list']);
+    this.router.navigate(['journey/detail', this._journey.id]);
   }
 
 
   onCancel()
   {
-    this.router.navigate(['journey/list']);
+    this.router.navigate(['journey/detail', this._journey.id]);
   }
 
 }

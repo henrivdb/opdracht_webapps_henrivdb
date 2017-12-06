@@ -13,6 +13,9 @@ function passwordValidator(length: number): ValidatorFn {
   };
 }
 
+declare var jquery:any; 
+declare var $ :any;
+
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
@@ -37,6 +40,13 @@ export class RegisterComponent implements OnInit {
   
   
     ngOnInit() {
+      $("body").css({
+        "background-image": "url(/assets/images/back.JPG)",
+        "background-position": "center",
+        "background-repeat":"no-repeat",
+        "background-size":"cover"
+      }); 
+
       this.user = this.fb.group({
         username: ['', [Validators.required, Validators.minLength(4)], 
         this.serverSideValidateUsername()],

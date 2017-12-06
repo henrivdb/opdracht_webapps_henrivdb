@@ -15,6 +15,8 @@ function compareDates(control: AbstractControl): { [key: string]: any } {
   return startDate.value < endDate.value ? null : { 'afterDate': true };
 }
 
+declare var jquery:any; 
+declare var $ :any;
 
 @Component({
   selector: 'app-add-journey',
@@ -37,7 +39,7 @@ export class AddJourneyComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    $("body").css("background", "none");    
     this.auth.allUsers.subscribe(items => this.users= items.filter(u=> u != this.auth.user$.getValue()));
     this.journey= this.fb.group({
         name: ['',[Validators.required, Validators.minLength(3)]],
@@ -55,9 +57,12 @@ export class AddJourneyComponent implements OnInit {
   { 
     var user= new Array();
     user.push(this.auth.user$.getValue());
+    if(this.journey.value.user != null)
+    {
     this.journey.value.user.forEach(element => {
       user.push(element);
     });
+  }
 
     var resume= new Array(user.length);
     

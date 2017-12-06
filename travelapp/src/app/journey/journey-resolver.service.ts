@@ -9,6 +9,6 @@ export class JourneyResolver implements Resolve< Journey > {
     constructor(private journeyService: JourneyDataService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Journey> {
-        return this.journeyService.getJourney(route.params[':id']);
+        return this.journeyService.getJourney(route.params['id']);
     }
 }
