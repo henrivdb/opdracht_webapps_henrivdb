@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class JourneyDataService {
-  private _appUrl = 'http://localhost:4200/API/';
+  private _appUrl = '/API';
 
   
     constructor(private http :Http, private auth: AuthenticationService){}
