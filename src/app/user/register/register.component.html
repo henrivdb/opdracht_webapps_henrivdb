@@ -40,5 +40,5 @@
       </div>
     </div>
   </div>
-  <button type='submit' class="ui primary right floated button">Register</button>
+  <button type='submit' [disabled]='!user.valid' class="ui primary right floated button">Register</button>
 </form>

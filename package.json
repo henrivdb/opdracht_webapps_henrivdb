@@ -9,7 +9,7 @@
     "ng": "ng",
     "start": "node ./bin/www",
     "build": "ng build",
-    "test": "ng test",
+    "test": "node node_modules/jasmine/bin/jasmine.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build"
@@ -55,6 +55,7 @@
     "@types/jquery": "^3.2.16",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.2.0",
+    "jasmine": "^2.8.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -64,6 +65,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "request": "^2.83.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
