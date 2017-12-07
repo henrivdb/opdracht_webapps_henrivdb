@@ -79,7 +79,7 @@ router.put('/API/journey/:jourid', function (req, res) {
       if (err) {
         return res.send(500, err);
       }
-      res.json(data);
+      res.json(data.journey);
     });
   });
 });
