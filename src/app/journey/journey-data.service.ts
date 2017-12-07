@@ -41,7 +41,7 @@ export class JourneyDataService {
       .map(item => Journey.fromJSON(item));
     }
 
-    updateJourney(jour){
+    updateJourney(jour) : Observable<Journey>{
       return this.http.put(`${this._appUrl}journey/${jour.id}`, jour) 
       .map(jour => jour.json())
       .map(item => Journey.fromJSON(item));
