@@ -14,6 +14,8 @@ let passport = require('passport');
 var mongoose = require('mongoose');
 
 mongoose.connect(process.env.JOURNEY_DATABASE, {  useMongoClient: true });
+//mongoose.connect('mongodb://localhost/traveldb', {  useMongoClient: true });
+
 
 require('./models/Journey');
 require('./config/passport');

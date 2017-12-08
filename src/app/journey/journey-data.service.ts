@@ -42,9 +42,11 @@ export class JourneyDataService {
     }
 
     updateJourney(jour){
-      return this.http.put(`${this._appUrl}journey/${jour.id}`, jour);
-      /*.map(jour => jour.json())
-      .map(item => Journey.fromJSON(item));*/
+      return this.http.put(`${this._appUrl}journey/${jour.id}`, jour)
+      .map(jour => jour.json())
+      .map(item => Journey.fromJSON(item))
+      .subscribe(jour => console.log(jour));
+      
 
     }
 }
