@@ -1,0 +1,113 @@
+@import './3rdParty/semantic.min.css';
+
+.journey{
+    float: left;
+    padding: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background-color: rgba(247,249,255,0.5);
+    color: #212122;
+    box-shadow: 5px 5px 50px rgba(211, 211, 211, 0.575);    
+    text-align: center;    
+}
+
+.journey h2{
+    padding-top: 50px;
+    color:#075D98;
+}
+
+.journey:hover h2{
+    color:#05426B;    
+}
+
+
+.journey:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 50px gray;
+}
+
+.new{
+    font-size: 200px;
+    text-align: center;
+    padding-top: 35%;
+    margin-left: 5px;
+    color:#075D98;
+    
+}
+
+.new:hover{
+    color:#05426B;    
+}
+
+.register{
+float: right;
+}
+
+.logout{
+    float: right;
+}
+
+.detail{
+    overflow: hidden;    
+}
+
+.detail p{
+    font-size: 17px;
+}
+
+.detail li{
+    font-size: 17px;
+}
+
+.form{
+    overflow: hidden;   
+}
+
+.content{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.loginMess{
+    margin-bottom: 10px !important;
+}
+
+/**********************************************DESKTOP***************************************/
+@media screen and (min-width: 992px) {
+
+.journey{
+    width: 250px;
+    height: 250px;
+}
+
+.new{
+    font-size: 250px; 
+}
+
+
+.detail{
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+}
+
+.form{
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+}
+
+.content{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.login{ 
+    
+    margin-left: 30% !important;
+    margin-right: 30% !important;
+}
+}

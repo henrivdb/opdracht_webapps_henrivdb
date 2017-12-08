@@ -1,0 +1,13 @@
+<div class="ui inverted menu">
+      <a routerLink="/" class="item"><h1>Travel App</h1></a>
+    <div class="right menu">
+      <a *ngIf='(currentUser | async) else loginlink' class="item" (click)="logout()" 
+      routerLink="/logout">Log out</a>
+  </div>
+</div>
+<div class="ui container content">
+    <router-outlet></router-outlet>
+  </div>
+
+  
+  

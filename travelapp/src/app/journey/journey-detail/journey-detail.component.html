@@ -1,0 +1,32 @@
+<div class="ui segment detail">
+    <p class="ui dividing header">Name</p>
+    <p>{{journey?.name}}</p>
+    <div ng-if="journey?.destination != null">
+        <p class="ui dividing header">Destination</p>
+        <p>{{journey?.destination}}</p>
+    </div>
+    <p class="ui dividing header">Country</p>
+    <p>{{journey?.country}}</p>
+ 
+
+    <p class="ui dividing header">Date</p>    
+        <p>{{journey?.getDateString()}}</p>
+
+    <p class="ui dividing header">Fellow travelers</p>
+    <ul>
+        <li *ngFor='let u of journey?.user' [value]='u'>{{u}}</li>
+    </ul>
+    <br>
+    <div *ngFor='let res of resumeText'>
+        <p>{{res}}</p>
+        <br>
+    </div>
+
+
+    <p class="ui dividing header"></p>
+    <button class="ui button negative right floated" (click)="delete()">Delete</button>
+    <button class="ui primary button right floated" (click)="edit()">Edit review</button>
+    <button class="ui right labeled icon button" routerLinkActive='active' routerLink="/journey/list">
+        <i class="left arrow icon"></i>List
+    </button>
+</div>
